@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A Special Birthday Surprise 💖</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Opening Screen -->
+    <section class="screen active" id="welcome">
+
+        <div class="card">
+
+            <div class="emoji">💌</div>
+
+            <h1>Hey Manu...💌</h1>
+
+            <p>
+                I made something special for you, Manu.
+            </p>
+
+            <p class="small-text">
+                There's a little surprise waiting inside ✨
+            </p>
+
+            <button onclick="startSurprise()">
+                Open Your Surprise 💖
+            </button>
+
+        </div>
+
+    </section>
+
+<!-- Countdown Screen -->
+<section class="screen" id="countdown">
+
+    <div class="card countdown-card">
+
+        <div id="countdown-number">3</div>
+
+        <p>Get ready... ✨</p>
+
+    </div>
+
+</section>
+    <!-- Question Screen -->
+    <section class="screen" id="question">
+
+        <div class="card">
+
+            <div class="emoji">🥰</div>
+
+            <h1>Are you ready?</h1>
+
+            <p>
+                There's something I really want you to see...
+            </p>
+
+            <div class="buttons">
+
+                <button onclick="yesClicked()">
+                    YES 💖
+                </button>
+
+                <button onclick="yesClicked()">
+                    Definitely! ✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Birthday Screen -->
+    <section class="screen" id="birthday">
+
+        <div class="card birthday-card">
+
+            <div class="emoji">🎂</div>
+
+            <h1>HAPPY BIRTHDAY, Manu! 🎂</h1>
+
+            <h2>🎉 🎈 🥳 🎈 🎉</h2>
+
+            <p>
+                Today is all about celebrating
+                an incredibly special person.
+            </p>
+
+            <button onclick="nextScreen('memories')">
+                Continue ✨
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- Memories Screen -->
+    <section class="screen" id="memories">
+
+        <div class="content">
+
+            <h1>Our Memories 📸</h1>
+
+            <p class="subtitle">
+                Some moments are simply too special to forget.
+            </p>
+
+            <div class="slideshow">
+
+    <div class="slide active-slide">
+        <img src="{{ url_for('static', filename='images/photo1.jpg') }}">
+        <p>A beautiful memory ✨</p>
+    </div>
+
+    <div class="slide">
+        <img src="{{ url_for('static', filename='images/photo2.jpg') }}">
+        <p>A moment worth remembering 💖</p>
+    </div>
+
+    <div class="slide">
+        <img src="{{ url_for('static', filename='images/photo3.jpg') }}">
+        <p>Another special moment 🌸</p>
+    </div>
+
+</div>
+
+<div class="slide-buttons">
+    <button onclick="changeSlide(-1)">❮</button>
+    <button onclick="changeSlide(1)">❯</button>
+</div>
+
+            <button onclick="nextScreen('music')">
+                Continue 🎵
+            </button>
+
+        </div>
+
+    </section>
+
+
+    
+    <!-- Music Screen -->
+<section class="screen" id="music">
+
+    <div class="card music-card">
+
+        <div class="music-icon">🎵</div>
+
+        <h1>A Song For You</h1>
+
+        <p class="music-subtitle">
+            Some memories deserve their own soundtrack. ✨
+        </p>
+
+        <div class="music-player">
+
+            <div class="music-disc">
+                💿
+            </div>
+
+            <h2>Our Special Song</h2>
+
+            <p>🎶 A little melody for a special moment</p>
+
+            <audio id="birthdayMusic" controls>
+                <source
+                    src="{{ url_for('static', filename='music/birthday.mp3') }}"
+                    type="audio/mpeg">
+            </audio>
+
+        </div>
+
+        <button onclick="nextScreen('message')">
+            Continue to Your Message 💌
+        </button>
+
+    </div>
+
+</section>
+
+
+
+    
+            <!-- Message Screen -->
+<section class="screen" id="message">
+
+    <div class="card message-card">
+
+        <div class="emoji">💌</div>
+
+        <h1>For You, Manu...🌙</h1>
+
+        <div id="typed-message" class="typed-message"></div>
+
+        <button id="lastSurpriseBtn"
+                onclick="nextScreen('final')"
+                style="display:none;">
+            There's one last thing I want to say... ❤️
+        </button>
+
+    </div>
+
+</section>
+
+
+    <!-- Final Screen -->
+    <section class="screen" id="final">
+
+        <div class="card final-card">
+
+            <div class="emoji">🌙</div>
+
+            <h1>One Last Thing...</h1>
+
+            <h2>Happy Birthday, Manu.❤️🎂</h2>
+
+            <p>
+                Thank you for being one of the most beautiful chapters
+    my heart has ever known
+            </p>
+            
+            <p>No matter where life takes us,
+               I'll always be grateful
+               that I got to meet someone like you.
+            </p>
+
+            <div class="hearts">
+                💖 💕 💗 💕 💖
+            </div>
+
+            <p class="final-text">
+               May every wish you make today
+               find its way back to you. ✨
+
+            </p>
+            
+            <div class="final-stars">
+                ✦　✧　⋆　✦　⋆　✧　✦
+            </div>
+
+            <p class="made-for">
+                Made with ❤️ for My Love
+            </p>
+          
+        </div>
+
+    </section>
+
+
+    <!-- Confetti Container -->
+    <div id="confetti-container"></div>
+
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
